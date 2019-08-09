@@ -30,7 +30,7 @@ class UnsplashApiLogin extends Component {
         }
     }
 
-    componentDidMount() {
+    async componentDidMount() {
 
         var request = require('request');
         var apiurl = 'https://api.unsplash.com/search/photos?page=1&query=landscape&client_id=15a3b12b4e320ca5f4b5bd3319c5e0c73401530b3953e3dc8f7352a0b5669001'
