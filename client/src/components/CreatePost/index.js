@@ -10,7 +10,6 @@ import HeadTitle from "../HeadTitle";
 import M from 'materialize-css'
 
 import axios from 'axios'
-import LocationSearchInput from '../LocationSearchInput';
 
 
 // import 'materialize-css/dist/css/materialize.min.css';
@@ -109,23 +108,6 @@ class CreatePost extends Component {
     }
     render() {
 
-
-        // AUTOCOMPLETE
-        // const AddressDetails = props => {
-        //     return (
-        //         <div>
-        //             <pre>{JSON.stringify(props.place, null, 2)}</pre>
-        //             <pre>{JSON.stringify(props.place, null, 4)}</pre>
-        //             {console.log(props.place.address_components)}
-
-        //             {
-        //                 typeof props.place.geometry !== 'undefined' ? console.log(props.place.geometry.location.lng(), props.place.geometry.location.lat()) : console.log("Hey not now")
-
-        //             }
-
-        //         </div>
-        //     )
-        // };
 
         return (
 

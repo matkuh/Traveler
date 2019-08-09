@@ -17,7 +17,6 @@ import Background from "../assets/bg10.jpg"
 
 
 // TESTING FOR AUTOCOMPLETE
-import Autocomplete from "../components/AutocompleteLocation";
 /* global google */
 
 import MarkerInfo from "../components/MarkerInfo"

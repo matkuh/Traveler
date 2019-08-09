@@ -150,11 +150,11 @@ class Signup extends Component {
                                                 type='file'
                                                 onChange={this.handlePicture}
                                             />
-                                            {/* <input type='file' onChange={this.handlePicture} ref={(ref) => { this.uploadInput = ref }} /> */}
+                                            <input type='file' onChange={this.handlePicture} ref={(ref) => { this.uploadInput = ref }} />
                                         </div>
-                                        {/* <div className="file-path-wrapper">
+                                        <div className="file-path-wrapper">
                                             <input className="file-path validate" />
-                                        </div> */}
+                                        </div>
                                     </div>
                                 </Row>
 
