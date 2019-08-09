@@ -30,7 +30,11 @@ class CreatePost extends Component {
         info: "",
         title: "",
         location: "",
+
         url: '',
+        file: '',
+        fileName: '',
+
         tag: '',
         user_id: '',
         lat: '',
@@ -61,40 +65,38 @@ class CreatePost extends Component {
 
     handlePicture = async e => {
         // e.preventDefault();
-        console.log(e.target.files[0])
-
-       
+        var uniqueName = e.target.files[0].name
+        console.log(uniqueName)
+        this.setState({
+            file: e.target.files[0],
+            url: `https://travelerdb.s3-us-west-1.amazonaws.com/${uniqueName}`,
+            fileName: uniqueName
+        })
 
         let formData = new FormData();
         // formData.append("imageName", fileName + Date.now())
         formData.append('imageData', e.target.files[0])
-        formData.append("imageName", e.target.files[0].name)
-        console.log(e.target.files[0])
-
-        
-
+        formData.append("imageName", uniqueName)
         axios.post("/api/feed", formData)
             .then((res) => {
                 console.log(res)
-                this.setState({
-                    url : res.data.imageURL
-                })
+                // this.setState({
+                //     url: res.data.imageURL
+                // })
             })
-        //     fileName: e.target.files[0].name
-        // })
     }
 
     addPost = async event => {
         event.preventDefault();
         console.log("Add post begins")
+        console.log(this.state.url)
         var postData = {
             info: this.state.info,
-            // image: this.state.image,
             tag: this.state.tag,
             user_id: this.props.user_id,
             title: this.state.title,
             location: this.state.location,
-            image: this.state.url,
+            url: this.state.url,
             lat: this.state.lat,
             lng: this.state.lng,
         }
@@ -102,10 +104,9 @@ class CreatePost extends Component {
         API.newPost(postData)
             .then(response => {
                 console.log(response)
-                window.location.reload()
+                // window.location.reload()
             })
     }
-
     render() {
 
 
@@ -129,17 +130,20 @@ class CreatePost extends Component {
             )
         };
 
-return(
+        return (
+ 
 
-// IF MODAL WORKS WITH AUTOCOMPLETE
-<div>
+            // IF MODAL WORKS WITH AUTOCOMPLETE
+            <div>
                 <Row>
                     <Container>
                         <Container>
+
                             {/* <CardPanel> */}
                                 <Row className='center'>
                                 {/* <h6>Post About a Trip!</h6> */}
                                 <a className=" waves-light btn-large modal-trigger blue" href="#modal1">Create Post</a>
+
                                 </Row>
                             {/* </CardPanel> */}
                         </Container>
@@ -198,18 +202,18 @@ return(
                                     {/* UPLOAD IMAGE */}
                                     <Row>
                                         <div className="file-field input-field">
-                                        <div className="btn blue">
-                                            <span>Upload Photo</span>
-                                            <input
-                                                type='file'
-                                                onChange={this.handlePicture}
-                                            />
-                                            {/* <input type='file' onChange={this.handlePicture} ref={(ref) => { this.uploadInput = ref }} /> */}
+                                            <div className="btn blue">
+                                                <span>Upload Photo</span>
+                                                <input
+                                                    type='file'
+                                                    onChange={this.handlePicture}
+                                                />
+                                                {/* <input type='file' onChange={this.handlePicture} ref={(ref) => { this.uploadInput = ref }} /> */}
+                                            </div>
+                                            <div className="file-path-wrapper">
+                                                <input className="file-path validate" />
+                                            </div>
                                         </div>
-                                        <div className="file-path-wrapper">
-                                            <input className="file-path validate" />
-                                        </div>
-                                    </div>
                                     </Row>
 
                                     {/* DANNY IMAGE */}
@@ -230,11 +234,11 @@ return(
                 </div>
             </div>
 
-            
-            )
-        }
-        
+
+        )
     }
+
+}
 
 
 

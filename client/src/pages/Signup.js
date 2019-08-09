@@ -20,10 +20,10 @@ class Signup extends Component {
         passwordConfirm: '',
         firstName: '',
         lastName: '',
+
         file: '',
         fileName: '',
         url: '',
-        image: ''
         // uploadedFile: ''
         // success: false
     }
@@ -37,41 +37,35 @@ class Signup extends Component {
 
     handlePicture = async e => {
         // e.preventDefault();
-        console.log(e.target.files[0])
+        // console.log(e.target.files[0])
 
-       
+        var uniqueName = e.target.files[0].name
+        console.log(uniqueName)
+        this.setState({
+            file: e.target.files[0],
+            url: `https://travelerdb.s3-us-west-1.amazonaws.com/${uniqueName}`,
+            fileName: uniqueName
+        })
 
         let formData = new FormData();
         // formData.append("imageName", fileName + Date.now())
         formData.append('imageData', e.target.files[0])
-        formData.append("imageName", e.target.files[0].name)
-
-        
-
-        await axios.post("/api/user", formData)
+        formData.append("imageName", uniqueName)
+        axios.post("/api/user", formData)
             .then((res) => {
                 console.log(res)
-                this.setState({
-                    url : res.data.imageURL
-                })
+                // this.setState({
+                //     url: res.data.imageURL
+                // })
             })
-        //     fileName: e.target.files[0].name
-        // })
     }
-
 
     handleFormSubmit = async event => {
         event.preventDefault();
 
-
         if (this.state.firstName && this.state.lastName && this.state.email && this.state.password && this.state.passwordConfirm) {
             if (this.state.password === this.state.passwordConfirm) {
-
-                // let file = this.state.file
-                // let fileName = this.state.fileName
-
-
-
+                // console.log(this.state.uniqueName)
                 await fetch("/auth/signup", {
                     method: "POST",
                     credentials: "include",
@@ -98,7 +92,7 @@ class Signup extends Component {
                     passwordConfirm: '',
                     firstName: '',
                     lastName: '',
-                    image: ''
+                    url: ''
                 });
 
             } else {

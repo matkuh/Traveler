@@ -15,7 +15,7 @@ module.exports = {
 			info: req.body.info,
 			title: req.body.title,
 			location: req.body.location,
-			image: req.body.image,
+			image: req.body.url,
 			tag: req.body.tag,
 			lat: req.body.lat,
 			lng: req.body.lng
