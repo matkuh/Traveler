@@ -114,16 +114,13 @@ class CreatePost extends Component {
         const AddressDetails = props => {
             return (
                 <div>
-                    {/* <pre>{JSON.stringify(props.place, null, 2)}</pre> */}
-                    {/* <pre>{JSON.stringify(props.place, null, 4)}</pre> */}
-                    {/* {console.log(props.place.address_components)} */}
+                    <pre>{JSON.stringify(props.place, null, 2)}</pre>
+                    <pre>{JSON.stringify(props.place, null, 4)}</pre>
+                    {console.log(props.place.address_components)}
 
                     {
-                        typeof props.place.geometry !== 'undefined' ? console.log
-                            //LATITUDE
-                            // (props.place.geometry.location.lat() : console.log("Hey not now")
-                            //LONGITUDE
-                            (props.place.geometry.location.lng()) : console.log("Hey not now")
+                        typeof props.place.geometry !== 'undefined' ? console.log(props.place.geometry.location.lng(), props.place.geometry.location.lat()) : console.log("Hey not now")
+
                     }
 
                 </div>
@@ -131,7 +128,7 @@ class CreatePost extends Component {
         };
 
         return (
- 
+
 
             // IF MODAL WORKS WITH AUTOCOMPLETE
             <div>
@@ -140,11 +137,11 @@ class CreatePost extends Component {
                         <Container>
 
                             {/* <CardPanel> */}
-                                <Row className='center'>
+                            <Row className='center'>
                                 {/* <h6>Post About a Trip!</h6> */}
                                 <a className=" waves-light btn-large modal-trigger blue" href="#modal1">Create Post</a>
 
-                                </Row>
+                            </Row>
                             {/* </CardPanel> */}
                         </Container>
                     </Container>
@@ -152,7 +149,9 @@ class CreatePost extends Component {
                 <div id="modal1" className="modal">
 
                     {/* USER ID */}
-                    <h2 value={this.state.user_id}></h2>
+                    <Row className='center'>
+                        <h3 style={{marginTop: '2rem'}}>Create a Post</h3>
+                    </Row>
                     <Container>
                         <CardPanel>
                             <Container>
@@ -216,16 +215,7 @@ class CreatePost extends Component {
                                         </div>
                                     </Row>
 
-                                    {/* DANNY IMAGE */}
-                                    {/* <div className="row">
-                        <div className="input-field col s6">
-                            <input placeholder="Placeholder" id="image" type="text" className="validate" />
-                            <label htmlFor="image">Image</label>
-                        </div>
-                    </div>  */}
-
-
-                                    <Button onClick={this.addPost} >Submit</Button>
+                                    <Button className="btn blue modal-close" onClick={this.addPost} >Submit</Button>
                                 </form>
                             </Container>
                         </CardPanel>
