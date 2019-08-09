@@ -6,12 +6,14 @@ import { Link } from 'react-router-dom'
 // import image2 from '../assets/bg2.jpg';
 // import image3 from '../assets/bg3.jpg';
 
-import Button from '../components/Button'
+import Button from '../../components/Button'
 
-import { Col, Row, Container } from "../components/Grid";
-import CardPanel from '../components/CardPanel'
+import { Col, Row, Container } from "../../components/Grid";
+import CardPanel from '../../components/CardPanel'
 
-import UnsplashApiLogin from "../components/UnsplashSlideshow"
+import UnsplashApiLogin from "../../components/UnsplashSlideshow"
+
+import './style.css'
 
 
 class Login extends Component {
@@ -65,7 +67,7 @@ class Login extends Component {
         <div>
           <Container>
             <Row className="center">
-              <h1>TRAVELER</h1>
+              {/* <h1>TRAVELER</h1> */}
             </Row>
             <br /><br /><br />
             <CardPanel id="cardStyleLogin">
