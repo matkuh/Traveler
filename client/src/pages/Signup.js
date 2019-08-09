@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Col, Row, Container } from "../components/Grid";
 import Button from '../components/Button'
 import axios from 'axios'
+
+import { Link } from 'react-router-dom'
 // import { Link } from 'react-router-dom'
 // import BackgroundSlider from 'react-background-slider'
 
@@ -9,9 +11,7 @@ import axios from 'axios'
 // import image5 from '../assets/bg5.jpg';
 // import image6 from '../assets/bg6.jpg';
 
-// import UnsplashApiLogin from "../components/UnsplashSlideshow"
-
-const log = console.log()
+import UnsplashApiLogin from "../components/UnsplashSlideshow"
 
 class Signup extends Component {
     state = {
@@ -106,7 +106,7 @@ class Signup extends Component {
     render() {
         return (
             <div>
-                {/* <UnsplashApiLogin /> */}
+                <UnsplashApiLogin />
                 <Container>
                     <div className="card-panel center" id="cardStyleSignup">
                         <h4>Sign Up</h4>
@@ -160,7 +160,15 @@ class Signup extends Component {
 
                             </form>
                         </div>
-                        <Button onClick={this.handleFormSubmit}>Signup <i className="material-icons right">send</i></Button>
+                        <Row className="center" id='loginRe'>
+                            <Link to="/">
+                                Already have an account? Login here.
+                            </Link>
+                        </Row>
+                        <Row>
+                            <Button onClick={this.handleFormSubmit}>Signup <i className="material-icons right">send</i></Button>
+
+                        </Row>
 
                     </div>
                 </Container>

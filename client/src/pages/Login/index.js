@@ -66,11 +66,11 @@ class Login extends Component {
 
         <div>
           <Container>
-            <Row className="center">
-              {/* <h1>TRAVELER</h1> */}
-            </Row>
+            {/* <h1>TRAVELER</h1> */}
+            {/* <h1 id='logo'>HELLO?</h1> */}
             <br /><br /><br />
             <CardPanel id="cardStyleLogin">
+              <h1 id='logo'>Traveler</h1>
 
               <h4 className="loginFont">Login</h4>
 
@@ -87,7 +87,16 @@ class Login extends Component {
                     <label htmlFor="password">Password</label>
                   </div>
                 </Row>
-                <Row>
+                <Row className='center'>
+                  <Col size="s6">
+                    {/* <br></br> */}
+                    <Link to="/signup">
+                      Don't have an account? Sign up here.
+                    </Link>
+                    {/* <br></br> */}
+                  </Col>
+                </Row>
+                <Row className='center'>
                   <Col size="s6">
                     <br></br>
                     {/* <Link to="/profile"> */}
@@ -95,13 +104,7 @@ class Login extends Component {
                     {/* </Link> */}
                     <br></br>
                   </Col>
-                  <Col size="s6">
-                    <br></br>
-                    <Link to="/signup">
-                      <Button>Signup</Button>
-                    </Link>
-                    <br></br>
-                  </Col>
+
                 </Row>
               </form>
             </CardPanel>

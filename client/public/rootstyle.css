@@ -29,22 +29,33 @@
     font-family: 'Open Sans', 'sans-serif'; 
 }
 
+#loginRe{
+    margin-bottom: 1rem;
+}
+
+#logo {
+    z-index: 98;
+}
 /* .loginFont, h1, h2, h3, h4, h5, h6{ */
     /* font-family: 'Faster One'; */
 /* } */
 
 #cardStyleLogin{
     position:absolute;
-    z-index:100;
+    z-index:80;
     width: 25rem;
     top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+
+
+
 #cardStyleSignup{
     position:absolute;
     z-index:100;
-    width:70%;
+    width:25rem;
     /* margin:0 auto; */
     top: 50%;
   left: 50%;

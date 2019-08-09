@@ -22,12 +22,9 @@ import React, { Component } from 'react';
 import BackgroundSlideshow from 'react-background-slideshow';
 
 class UnsplashApiLogin extends Component {
-    
-    constructor(props) {
-        super(props);
-        this.state = {
-            items: []
-        }
+
+    state = {
+        items: []
     }
 
     async componentDidMount() {
@@ -62,7 +59,9 @@ class UnsplashApiLogin extends Component {
             );
         } else {
             return (
-                <BackgroundSlideshow images={this.state.items.map(image => image.urls.regular)} duration={5} transition={3}/>
+                <BackgroundSlideshow images={this.state.items.map(image => image.urls.regular)} duration={5} transition={3}>
+                    {this.props.children}
+                </BackgroundSlideshow>
             );
         }
     }
