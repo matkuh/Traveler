@@ -10,7 +10,6 @@
   "dependencies": {
     "aws-sdk": "^2.505.0",
     "bcryptjs": "^2.4.3",
-    "bluebird": "^3.5.5",
     "concurrently": "^4.1.1",
     "cookie-parser": "^1.4.4",
     "dotenv": "^8.0.0",
@@ -19,7 +18,6 @@
     "express-session": "^1.16.2",
     "file-type": "^12.1.0",
     "fs": "0.0.1-security",
-    "gh-pages": "^2.0.1",
     "google-map-react": "^1.1.4",
     "if-env": "^1.0.4",
     "js-cookie": "^2.2.0",
@@ -33,7 +31,6 @@
     "react": "^16.8.6",
     "react-background-slider": "^1.2.0",
     "react-background-slideshow": "^1.0.4",
-    "react-s3-uploader": "^4.8.0",
     "sequelize": "^5.12.1",
     "sequelize-cli": "^5.5.0",
     "uuid": "^3.3.2"

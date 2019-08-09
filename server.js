@@ -59,22 +59,13 @@ app.use(passport.initialize());
 // Persistent login sessions. Session expires after something or when deleted by user
 app.use(passport.session())
 
-// // enable CORS so that browsers don't block requests.
-// app.use((req, res, next) => {
-//     res.header("Access-Control-Allow-Origin", "https://localhost:4815");
-//     res.header("Access-Control-Allow-Credentials", 'true');
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//     res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-//     next();
-// });
-
 // Routes
 app.use(routes)
 
 // Add sequelize connection
 // Sync sequelize with our database models. We set force to true to reset database each time for development. 
 //! REMOVE FORCE TRUE DURING PRODUCTION!
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => {
         console.log(`API server now listening on PORT ${PORT} `)
     })
