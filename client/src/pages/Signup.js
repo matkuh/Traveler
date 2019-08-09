@@ -13,6 +13,7 @@ import axios from 'axios'
 
 const log = console.log()
 
+
 class Signup extends Component {
     state = {
         email: "",
@@ -47,16 +48,16 @@ class Signup extends Component {
         formData.append("imageName", e.target.files[0].name)
 
         
-
+        
         await axios.post("/api/user", formData)
             .then((res) => {
                 console.log(res)
                 this.setState({
                     url : res.data.imageURL
                 })
+
             })
-        //     fileName: e.target.files[0].name
-        // })
+
     }
 
 
@@ -65,7 +66,7 @@ class Signup extends Component {
 
 
         if (this.state.firstName && this.state.lastName && this.state.email && this.state.password && this.state.passwordConfirm) {
-            if (this.state.password === this.state.passwordConfirm) {
+            if (this.state.password === this.state.passwordConfirm ) {
 
                 // let file = this.state.file
                 // let fileName = this.state.fileName
