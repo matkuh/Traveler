@@ -6,6 +6,7 @@
   "engines": {
     "node": "12.7.0"
   },
+  "homepage": "https://github.com/dchicchon/project-3#readme",
   "dependencies": {
     "aws-sdk": "^2.505.0",
     "bcryptjs": "^2.4.3",
@@ -18,6 +19,7 @@
     "express-session": "^1.16.2",
     "file-type": "^12.1.0",
     "fs": "0.0.1-security",
+    "gh-pages": "^2.1.1",
     "google-map-react": "^1.1.4",
     "if-env": "^1.0.4",
     "js-cookie": "^2.2.0",
@@ -56,6 +58,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/dchicchon/project-3/issues"
-  },
-  "homepage": "https://github.com/dchicchon/project-3#readme"
+  }
 }
