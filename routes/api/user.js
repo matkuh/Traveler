@@ -22,41 +22,23 @@ const upload = multer({
         acl: 'public-read',
         contentType: multerS3.AUTO_CONTENT_TYPE,
         metadata: function (req, file, cb) {
-            console.log("\nMETA")
-            console.log(req.headers)
-            console.log(req.body)
-            console.log(file)
-
             cb(null, { fieldName: file.fieldname })
         },
         key: function (req, file, cb) {
-            console.log("\nKEY")
-            console.log(req.headers)
-            console.log(req.body)
-            console.log(file)
-            cb(null, Date.now().toString())
+            cb(null, file.originalname)
         }
     }),
-    // limits: {
-    //     fileSize: 1024 * 1024 * 5
-    // },
-    // fileFilter: fileFilter
 });
 
-// /api/user
 
 router.route("/user")
-    // .get(userController.getUser)
-    // .post(userController.addUser)
     .put(userController.editUser)
     .post(upload.single("imageData"), (req, res, next) => {
         console.log("IMAGE ROUTE POST")
-        // var location = (`https://${process.env.S3_BUCKET_NAME}.s3.amazonaws.com/`)
         console.log(req.file.location)
         res.json({
             imageURL: req.file.location
         })
-        // res.send(req.file.location)
     })
 
 router.route("/user/:id")

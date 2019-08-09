@@ -10,6 +10,7 @@ import HeadTitle from "../HeadTitle";
 import M from 'materialize-css'
 
 import axios from 'axios'
+import LocationSearchInput from '../LocationSearchInput';
 
 
 // import 'materialize-css/dist/css/materialize.min.css';
@@ -17,7 +18,6 @@ import Modal from "../Modal";
 import Cookies from 'js-cookie'
 
 // TESTING FOR AUTOCOMPLETE
-import Autocomplete from "../AutocompleteLocation";
 /* global google */
 
 // Utils
@@ -30,7 +30,11 @@ class CreatePost extends Component {
         info: "",
         title: "",
         location: "",
+
         url: '',
+        file: '',
+        fileName: '',
+
         tag: '',
         user_id: '',
         lat: '',
@@ -47,9 +51,9 @@ class CreatePost extends Component {
     }
 
     // AUTOCOMPLETE
-    showPlaceDetails(place) {
-        this.setState({ place });
-    }
+    // showPlaceDetails(place) {
+    //     this.setState({ place });
+    // }
 
 
     handleInputChange = event => {
@@ -61,40 +65,38 @@ class CreatePost extends Component {
 
     handlePicture = async e => {
         // e.preventDefault();
-        console.log(e.target.files[0])
-
-       
+        var uniqueName = e.target.files[0].name
+        console.log(uniqueName)
+        this.setState({
+            file: e.target.files[0],
+            url: `https://travelerdb.s3-us-west-1.amazonaws.com/${uniqueName}`,
+            fileName: uniqueName
+        })
 
         let formData = new FormData();
         // formData.append("imageName", fileName + Date.now())
         formData.append('imageData', e.target.files[0])
-        formData.append("imageName", e.target.files[0].name)
-        console.log(e.target.files[0])
-
-        
-
+        formData.append("imageName", uniqueName)
         axios.post("/api/feed", formData)
             .then((res) => {
                 console.log(res)
-                this.setState({
-                    url : res.data.imageURL
-                })
+                // this.setState({
+                //     url: res.data.imageURL
+                // })
             })
-        //     fileName: e.target.files[0].name
-        // })
     }
 
     addPost = async event => {
         event.preventDefault();
         console.log("Add post begins")
+        console.log(this.state.url)
         var postData = {
             info: this.state.info,
-            // image: this.state.image,
             tag: this.state.tag,
             user_id: this.props.user_id,
             title: this.state.title,
             location: this.state.location,
-            image: this.state.url,
+            url: this.state.url,
             lat: this.state.lat,
             lng: this.state.lng,
         }
@@ -105,94 +107,51 @@ class CreatePost extends Component {
                 window.location.reload()
             })
     }
-
     render() {
 
 
         // AUTOCOMPLETE
-        const AddressDetails = props => {
-            return (
-                <div>
-                    {/* <pre>{JSON.stringify(props.place, null, 2)}</pre> */}
-                    {/* <pre>{JSON.stringify(props.place, null, 4)}</pre> */}
-                    {/* {console.log(props.place.address_components)} */}
+        // const AddressDetails = props => {
+        //     return (
+        //         <div>
+        //             <pre>{JSON.stringify(props.place, null, 2)}</pre>
+        //             <pre>{JSON.stringify(props.place, null, 4)}</pre>
+        //             {console.log(props.place.address_components)}
 
-                    {
-                        typeof props.place.geometry !== 'undefined' ? console.log
-                            //LATITUDE
-                            // (props.place.geometry.location.lat() : console.log("Hey not now")
-                            //LONGITUDE
-                            (props.place.geometry.location.lng()) : console.log("Hey not now")
-                    }
+        //             {
+        //                 typeof props.place.geometry !== 'undefined' ? console.log(props.place.geometry.location.lng(), props.place.geometry.location.lat()) : console.log("Hey not now")
 
-                </div>
-            )
-        };
+        //             }
 
-return(
-    // IF MODAL DOESN'T WORK WITH AUTOCOMPLETE
-            // <div id="content">
+        //         </div>
+        //     )
+        // };
 
-            //     {/* USER ID */}
-            //     <h2 value={this.state.user_id}></h2>
-            //     {/* <Container> */}
-            //         {/* <CardPanel style={{opacity: 1}}> */}
-            //         <CardPanel>
-            //             <HeadTitle style={{fontSize: "1.333rem"}}>Create a Post</HeadTitle>
-            //             {/* <Container> */}
-            //                 <form>
-            //                     {/* <Date className="col s6" /> */}
-            //                     {/* <TextInput>Where are you?</TextInput> */}
-            //                     {/* AUTOCOMPLETE TESTING */}
-            //                     <Autocomplete name='location' onPlaceChanged={this.showPlaceDetails.bind(this)} />
-            //                     <AddressDetails name = "location" place={this.state.place} />
-
-            //                     {/* <label htmlFor="location">Where are you?</label> */}
-
-            //                     {/* <TextInput className="col s6">Title</TextInput> */}
-            //                     <input placeholder="Title" id="title" name="title" type="text" className="validate" value={this.state.title} onChange={this.handleInputChange} />
-            //                     {/* <label htmlFor="title">Title</label> */}
+        return (
 
 
-            //                     {/* <TextInput>Record Your Journey</TextInput> */}
-            //                     <input placeholder="Record your journey" id="description" name="info" type="text" className="validate" value={this.state.info} onChange={this.handleInputChange} />
-            //                     {/* COMMENTED OUT FOR NOW */}
-            //                     {/* <label htmlFor="description">Record?</label> */}
-
-            //                     <input placeholder="Tag" id="tag" name="tag" type="text" className="validate" value={this.state.tag} onChange={this.handleInputChange} />
-
-            //                     <input placeholder="lat" id="lat" name="lat" type="text" className="validate" value={this.state.lat} onChange={this.handleInputChange} />
-            //                     <input placeholder="lng" id="lng" name="lng" type="text" className="validate" value={this.state.lng} onChange={this.handleInputChange} />
-            //                     <Button onClick={this.addPost} >Submit</Button>
-            //                     </form>
-
-            //                 </CardPanel>
-                                
-            //                 </div>
-// IF MODAL DOENS'T WORK WITH AUTOCOMPLETE
-
-
-
-
-
-// IF MODAL WORKS WITH AUTOCOMPLETE
-<div>
+            // IF MODAL WORKS WITH AUTOCOMPLETE
+            <div>
                 <Row>
                     <Container>
                         <Container>
-                            <CardPanel>
-                                <Row>
+
+                            {/* <CardPanel> */}
+                            <Row className='center'>
                                 {/* <h6>Post About a Trip!</h6> */}
                                 <a className=" waves-light btn-large modal-trigger blue" href="#modal1">Create Post</a>
-                                </Row>
-                            </CardPanel>
+
+                            </Row>
+                            {/* </CardPanel> */}
                         </Container>
                     </Container>
                 </Row>
                 <div id="modal1" className="modal">
 
                     {/* USER ID */}
-                    <h2 value={this.state.user_id}></h2>
+                    <Row className='center'>
+                        <h3 style={{ marginTop: '2rem' }}>Create a Post</h3>
+                    </Row>
                     <Container>
                         <CardPanel>
                             <Container>
@@ -202,8 +161,7 @@ return(
                                     {/* AUTOCOMPLETE TESTING */}
                                     <Row>
                                         <Col size="s6">
-                                            <Autocomplete name='location' onPlaceChanged={this.showPlaceDetails.bind(this)} />
-                                            <AddressDetails name="location" place={this.state.place} />
+
                                         </Col>
 
                                         {/* <label htmlFor="location">Where are you?</label> */}
@@ -242,30 +200,21 @@ return(
                                     {/* UPLOAD IMAGE */}
                                     <Row>
                                         <div className="file-field input-field">
-                                        <div className="btn blue">
-                                            <span>Upload Photo</span>
-                                            <input
-                                                type='file'
-                                                onChange={this.handlePicture}
-                                            />
-                                            {/* <input type='file' onChange={this.handlePicture} ref={(ref) => { this.uploadInput = ref }} /> */}
+                                            <div className="btn blue">
+                                                <span>Upload Photo</span>
+                                                <input
+                                                    type='file'
+                                                    onChange={this.handlePicture}
+                                                />
+                                                {/* <input type='file' onChange={this.handlePicture} ref={(ref) => { this.uploadInput = ref }} /> */}
+                                            </div>
+                                            <div className="file-path-wrapper">
+                                                <input className="file-path validate" />
+                                            </div>
                                         </div>
-                                        <div className="file-path-wrapper">
-                                            <input className="file-path validate" />
-                                        </div>
-                                    </div>
                                     </Row>
 
-                                    {/* DANNY IMAGE */}
-                                    {/* <div className="row">
-                        <div className="input-field col s6">
-                            <input placeholder="Placeholder" id="image" type="text" className="validate" />
-                            <label htmlFor="image">Image</label>
-                        </div>
-                    </div>  */}
-
-
-                                    <Button onClick={this.addPost} >Submit</Button>
+                                    <Button className="btn blue modal-close" onClick={this.addPost} >Submit</Button>
                                 </form>
                             </Container>
                         </CardPanel>
@@ -274,11 +223,11 @@ return(
                 </div>
             </div>
 
-            
-            )
-        }
-        
+
+        )
     }
+
+}
 
 
 

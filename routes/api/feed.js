@@ -19,34 +19,25 @@ const upload = multer({
         acl: 'public-read',
         contentType: multerS3.AUTO_CONTENT_TYPE,
         metadata: function (req, file, cb) {
-            console.log("\nMETA")
-            console.log(req.headers)
-            console.log(req.body)
+            console.log("MEMEMEMEMEMEMMEMEM")
             console.log(file)
 
             cb(null, { fieldName: file.fieldname })
         },
         key: function (req, file, cb) {
-            console.log("\nKEY")
-            console.log(req.headers)
-            console.log(req.body)
-            console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!")
+            console.log("IN THE FEED PHOTO KEY")
             console.log(file)
-            cb(null, Date.now().toString())
+            cb(null, file.originalname)
         }
     }),
-    // limits: {
-    //     fileSize: 1024 * 1024 * 5
-    // },
-    // fileFilter: fileFilter
 });
 
 
 router.route("/feed")
     .post(upload.single("imageData"), (req, res, next) => {
-        console.log("IMAGE ROUTE POST")
+        console.log("IMAGE FEED POST")
         // var location = (`https://${process.env.S3_BUCKET_NAME}.s3.amazonaws.com/`)
-        console.log(req.file.location)
+        console.log(req.file)
         res.json({
             imageURL: req.file.location
         })

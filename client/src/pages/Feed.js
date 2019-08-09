@@ -118,7 +118,7 @@ class Feed extends Component {
                 <AddressDetails place={this.state.place} value={this.state.location}/> */}
                 {/* <CreatePost user_id={this.state.user_id} /> */}
                 
-                <HeadTitle>Follow Feed</HeadTitle>
+                <HeadTitle></HeadTitle>
 
 {/* <Container>
     <CardPanel>
@@ -131,8 +131,8 @@ class Feed extends Component {
                 <Container>
 
                 <CreatePost user_id={this.state.user_id} />
-                    <CardPanel>
-                        <Row>
+                    {/* <CardPanel> */}
+                        <Row className="center">
                             {(this.state.followPosts.length) ?
                                 this.state.followPosts.map((post, i) => (
                                     <Post
@@ -148,7 +148,7 @@ class Feed extends Component {
                                 )) : "No Posts"
                             }
                         </Row>
-                    </CardPanel>
+                    {/* </CardPanel> */}
                 </Container>
                 <CardPanel style={styles}></CardPanel>
             </div>
