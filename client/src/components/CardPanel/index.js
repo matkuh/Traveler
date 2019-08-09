@@ -1,9 +1,9 @@
 import React from "react";
 
 
-function CardPanel (props) {
+function CardPanel(props) {
   return (
-    <div className="card-panel center" {...props}></div>
+    <div className="card-panel center" {...props}>{props.children}</div>
   );
 }
 

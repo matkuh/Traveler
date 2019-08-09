@@ -17,7 +17,6 @@ import Background from "../assets/bg10.jpg"
 
 
 // TESTING FOR AUTOCOMPLETE
-import Autocomplete from "../components/AutocompleteLocation";
 /* global google */
 
 import MarkerInfo from "../components/MarkerInfo"
@@ -38,13 +37,13 @@ const styles = {
     // position: 'fixed',
     left: '0',
     bottom: '0',
-    marginTop: '15%',
+    marginTop: '30%',
     width: '100%',
     backgroundColor: '#2196f3',
     color: 'white',
     textAlign: 'center',
     opacity: '1'
-  }
+}
 
 
 
@@ -58,9 +57,9 @@ class Feed extends Component {
         // followIds: {},
         followPosts: {},
         place: {}
-        
+
     }
-    
+
 
     showPlaceDetails(place) {
         this.setState({ place });
@@ -117,24 +116,26 @@ class Feed extends Component {
                 {/* <Autocomplete id="location" name="location" value={this.state.location} onPlaceChanged={this.showPlaceDetails.bind(this)} />
                 <AddressDetails place={this.state.place} value={this.state.location}/> */}
                 {/* <CreatePost user_id={this.state.user_id} /> */}
-                
-                <HeadTitle>Follow Feed</HeadTitle>
 
-{/* <Container>
+                <HeadTitle></HeadTitle>
+
+                {/* <Container>
     <CardPanel>
         <SidePost user_id={this.state.user_id}/>
     </CardPanel>
 </Container> */}
 
-{/* <SidePost/> */}
+                {/* <SidePost/> */}
 
                 <Container>
 
-                <CreatePost user_id={this.state.user_id} />
-                    <CardPanel>
-                        <Row>
-                            {(this.state.followPosts.length) ?
-                                this.state.followPosts.map((post, i) => (
+                    <CreatePost user_id={this.state.user_id} />
+                    {/* <CardPanel> */}
+                    <Container>
+                        {(this.state.followPosts.length) ?
+                            this.state.followPosts.map((post, i) => (
+                                <Row className="center">
+
                                     <Post
                                         key={i}
                                         title={post.title}
@@ -145,10 +146,12 @@ class Feed extends Component {
                                         image={post.image}
 
                                     />
-                                )) : "No Posts"
-                            }
-                        </Row>
-                    </CardPanel>
+                                </Row>
+
+                            )) : "No Posts"
+                        }
+                    </Container>
+                    {/* </CardPanel> */}
                 </Container>
                 <CardPanel style={styles}></CardPanel>
             </div>

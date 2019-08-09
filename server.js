@@ -9,13 +9,12 @@ const session = require("express-session");
 const passport = require("passport")
 
 const app = express();
-const PORT = process.env.PORT || 4815
+const PORT = process.env.PORT || 5000
 
 // Here we bring in our models 
 const db = require("./models")
 
 app.use((req, res, next) => {
-    console.log("MIDDLEWARE")
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     res.header('Access-Control-Allow-Credentials', true);
@@ -59,15 +58,6 @@ app.use(passport.initialize());
 
 // Persistent login sessions. Session expires after something or when deleted by user
 app.use(passport.session())
-
-// // enable CORS so that browsers don't block requests.
-// app.use((req, res, next) => {
-//     res.header("Access-Control-Allow-Origin", "https://localhost:4815");
-//     res.header("Access-Control-Allow-Credentials", 'true');
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//     res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-//     next();
-// });
 
 // Routes
 app.use(routes)
