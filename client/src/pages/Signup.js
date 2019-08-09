@@ -110,56 +110,59 @@ class Signup extends Component {
                 <Container>
                     <div className="card-panel center" id="cardStyleSignup">
                         <h4 style={{ marginBottom: '0' }}>Sign Up</h4>
-                        <div className="row">
-                            <form className="col s12">
-                                <Row className="mb-1">
-                                    <div className="input-field col s6">
-                                        <input id="firstName" className="validate" type="text" name="firstName" value={this.state.firstName} onChange={this.handleInputChange} />
-                                        <label htmlFor="firstName">First Name</label>
-                                    </div>
-                                    <div className="input-field col s6">
-                                        <input id="lastName" className="validate" type="text" name="lastName" value={this.state.lastName} onChange={this.handleInputChange} />
-                                        <label htmlFor="lastLame">Last Name</label>
-                                    </div>
-                                </Row>
-                                <Row className='mb-1'>
-                                    <div className="input-field col s12">
-                                        <input id="email" className="validate" type="email" name="email" value={this.state.email} onChange={this.handleInputChange} />
-                                        <label htmlFor="email">Email</label>
-                                    </div>
-                                </Row>
+                        {/* <div className="row"> */}
+                        <form className="col s12">
 
-                                <Row className='mb-1'>
-                                    <div className="input-field col s12">
-                                        <input id="password" className="validate" type="password" name="password" value={this.state.password} onChange={this.handleInputChange} />
-                                        <label htmlFor="password">Password</label>
-                                    </div>
-                                </Row>
-                                <Row className='mb-1'>
-                                    <div className="input-field col s12">
-                                        <input id="passwordConfirm" className="validate" type="password" name="passwordConfirm" value={this.state.passwordConfirm} onChange={this.handleInputChange} />
-                                        <label htmlFor="passwordConfirm"> Confirm Password</label>
-                                    </div>
-                                </Row>
+                            <Row>
+                                <div className="input-field col s6">
+                                    <input id="firstName" className="validate" type="text" name="firstName" value={this.state.firstName} onChange={this.handleInputChange} />
+                                    <label htmlFor="firstName">First Name</label>
+                                </div>
+                                <div className="input-field col s6">
+                                    <input id="lastName" className="validate" type="text" name="lastName" value={this.state.lastName} onChange={this.handleInputChange} />
+                                    <label htmlFor="lastLame">Last Name</label>
+                                </div>
+                            </Row>
+                            <Row className='mb-1'>
+                                <div className="input-field col s12">
+                                    <input id="email" className="validate" type="email" name="email" value={this.state.email} onChange={this.handleInputChange} />
+                                    <label htmlFor="email">Email</label>
+                                </div>
+                            </Row>
 
-                                <Row className='center'>
-                                    <div className="file-field input-field">
-                                        <div className="btn blue" id='signUP'>
-                                            Upload Photo
-                                            <input
-                                                type='file'
-                                                onChange={this.handlePicture}
-                                            />
-                                            <input type='file' onChange={this.handlePicture} ref={(ref) => { this.uploadInput = ref }} />
-                                        </div>
-                                        <div className="file-path-wrapper">
-                                            <input className="file-path validate" />
-                                        </div>
-                                    </div>
-                                </Row>
+                            <Row className='mb-1'>
+                                <div className="input-field col s12">
+                                    <input id="password" className="validate" type="password" name="password" value={this.state.password} onChange={this.handleInputChange} />
+                                    <label htmlFor="password">Password</label>
+                                </div>
+                            </Row>
+                            <Row className='mb-1'>
+                                <div className="input-field col s12">
+                                    <input id="passwordConfirm" className="validate" type="password" name="passwordConfirm" value={this.state.passwordConfirm} onChange={this.handleInputChange} />
+                                    <label htmlFor="passwordConfirm"> Confirm Password</label>
+                                </div>
+                            </Row>
 
-                            </form>
-                        </div>
+                            <Row>
+
+                                <div className="file-field input-field">
+                                    <div className="btn blue" id='signUP'>
+                                        <span>Upload Photo</span>
+                                        <input
+                                            type='file'
+                                            onChange={this.handlePicture}
+                                        />
+                                        {/* <input type='file' onChange={this.handlePicture} ref={(ref) => { this.uploadInput = ref }} /> */}
+                                    </div>
+                                    <div className="file-path-wrapper">
+                                        <input className="file-path validate" />
+                                    </div>
+                                </div>
+
+                            </Row>
+
+                        </form>
+                        {/* </div> */}
                         <Row className="center" id='loginRe'>
                             <Link to="/">
                                 Already have an account? Login here.
