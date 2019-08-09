@@ -19,7 +19,7 @@
     "express-session": "^1.16.2",
     "file-type": "^12.1.0",
     "fs": "0.0.1-security",
-    "gh-pages": "^2.1.1",
+    "gh-pages": "^2.0.1",
     "google-map-react": "^1.1.4",
     "if-env": "^1.0.4",
     "js-cookie": "^2.2.0",
