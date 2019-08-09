@@ -154,18 +154,15 @@ export class Profile extends Component {
         return (
             <div style={divStyle}>
                 <Container>
-                    <HeadTitle>Profile</HeadTitle>
-                    <Row>
+                    <HeadTitle>{this.state.firstName}</HeadTitle>
+                    <Row className="center">
                         <Col size="s6">
-                            <CardPanel>
-                                <CardPanel>
-                                    {/* <p>{this.state.user_id}</p> */}
+                            {/* <p>{this.state.user_id}</p> */}
 
-                                    <img style={{height: "300px", width:"300px"}} src={this.state.image} alt="Profile picture" />
-                                </CardPanel>
-                            </CardPanel>
+                            <img style={{ height: "300px", width: "300px" }} src={this.state.image} alt="Profile picture" />
                         </Col>
-
+                    </Row>
+                    <Row className='center'>
                         <Col size="s6">
                             <CardPanel>
                                 <ProfileCard bio={this.state.bio} />
@@ -206,23 +203,23 @@ export class Profile extends Component {
                 </Container>
                 {/* SHOW POST ATTEMPT */}
                 <Container>
-                    <CardPanel>
-                        <Row>
-                            {(this.state.posts.length) ?
-                                this.state.posts.map((post, i) => (
-                                    <Post
-                                        key={i}
-                                        title={post.title}
-                                        info={post.info}
-                                        location={post.location}
-                                        tag={post.tag}
-                                        user_id={post.user_id}
-                                        image={post.image}
-                                    />
-                                )).reverse() : "No Posts"
-                            }
-                        </Row>
-                    </CardPanel>
+                    {(this.state.posts.length) ?
+                        this.state.posts.map((post, i) => (
+                            <Row className='center'>
+
+                                <Post
+                                    key={i}
+                                    title={post.title}
+                                    info={post.info}
+                                    location={post.location}
+                                    tag={post.tag}
+                                    user_id={post.user_id}
+                                    image={post.image}
+                                />
+                            </Row>
+
+                        )).reverse() : "No Posts"
+                    }
 
                 </Container>
             </div>
@@ -233,37 +230,4 @@ export class Profile extends Component {
 export default Profile;
 
 
-
-
-
-
-
-// function Profile(props) {
-//     return (
-//         <div>
-//             <Container>
-//                 <Row>
-//                     <Col size="s4">
-//                         <CardPanel>
-//                             <CardPanel>
-//                                 <img src={props.profileImg} />
-//                             </CardPanel>
-//                         </CardPanel>
-//                     </Col>
-
-//                     <Col size="s8">
-//                         <CardPanel>
-//                             <ProfileCard />
-//                         </CardPanel>
-//                     </Col>
-//                 </Row>
-//                 <CardPanel>
-//                     <img src={props.map} />
-//                 </CardPanel>
-//             </Container>
-//         </div>
-//     );
-// }
-
-// export default Profile;
 

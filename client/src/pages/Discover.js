@@ -43,7 +43,7 @@ const styles = {
     color: 'white',
     textAlign: 'center',
     opacity: '1'
-  }
+}
 
 
 class Discover extends Component {
@@ -77,15 +77,15 @@ class Discover extends Component {
     handleFormSubmit = event => {
         event.preventDefault()
 
-                // added==================================
-                if (!this.state.tag) {
-                    alert("don't refresh me");
-                    return false;
-                } else {
-                    alert("yass");
-                }
-        
-                // end add==================================
+        // added==================================
+        if (!this.state.tag) {
+            alert("don't refresh me");
+            return false;
+        } else {
+            alert("yass");
+        }
+
+        // end add==================================
 
         this.setState({ searched: true })
         var postQuery = this.state.tag
@@ -132,19 +132,19 @@ class Discover extends Component {
                     <HeadTitle>Discover</HeadTitle>
                     <Container>
                         <Row>
- 
-                             <div className="input-field col s12 bgSearchBar blue-text" >
-                                 <Col size="s10">
-                                 <i className=" material-icons prefix" style={{marginTop: "10px"}}>search</i>
-                                     <input type="text" id="discoversearch" name="tag" value={this.state.tag} onChange={this.handleInputChange} />
-                                     {/* <label htmlFor="autocomplete-input">Discover</label> */}
-                                 </Col>
-                                 <Col size="s2">
-                                     <Button style={{ marginTop: "10px" }} onClick={this.handleFormSubmit}>
-                                     <i className="material-icons">search</i>
-                                     </Button>
-                                 </Col>
-                             </div>
+
+                            <div className="input-field col s12 bgSearchBar blue-text" >
+                                <Col size="s10">
+                                    <i className=" material-icons prefix" style={{ marginTop: "10px" }}>search</i>
+                                    <input type="text" id="discoversearch" name="tag" value={this.state.tag} onChange={this.handleInputChange} />
+                                    {/* <label htmlFor="autocomplete-input">Discover</label> */}
+                                </Col>
+                                <Col size="s2">
+                                    <Button style={{ marginTop: "10px" }} onClick={this.handleFormSubmit}>
+                                        <i className="material-icons">search</i>
+                                    </Button>
+                                </Col>
+                            </div>
 
                         </Row>
                     </Container>
@@ -162,10 +162,12 @@ class Discover extends Component {
                         )) : "No Posts"}
 
                     </Row>
-                    <CardPanel>
-                        <Row>
-                            {(this.state.posts.length) ? this.state.posts.map((post, i) => (
+                    {/* <CardPanel> */}
+                        {(this.state.posts.length) ? this.state.posts.map((post, i) => (
+                            <Row className="center">
+
                                 <Post
+                                    
                                     followUser={this.followUser}
                                     key={i}
                                     title={post.title}
@@ -175,14 +177,15 @@ class Discover extends Component {
                                     user_id={post.user_id}
                                     image={post.image}
                                 />
-                            )) : "No Posts"}
+                            </Row>
 
-                        </Row>
-                    </CardPanel>
+                        )) : "No Posts"}
+
+                    {/* </CardPanel> */}
 
                 </Container>
                 {/* <BackgroundSlider images={[image4, image5, image6]} duration={5} transition={2} /> */}
-                        <CardPanel style={styles}></CardPanel>
+                <CardPanel style={styles}></CardPanel>
             </div>
         );
     }
