@@ -14,20 +14,20 @@ function Post(props) {
 
         <div className="card-action">
           <Row>
-            <Col size="s6">
-              <img src={props.image} width="80px" height="80px" alt="" position="absolute" verticle-align="center" />
+            <Col size="s10">
+              <img src={props.image} style={{marginLeft: "150px"}} width="80px" height="80px" alt="" position="absolute" verticle-align="center" />
             </Col>
 
             <Col size="s1">
               <span><a href="#" align="center" verticle-align="center" ></a>
-                {props.follow ? <Button className="btn-small right blue" onClick={() => props.followUser(props.user_id)}>Follow</Button> : ''}
+                {props.follow ? <Button className="btn-small right blue"  onClick={() => props.followUser(props.user_id)}>Follow</Button> : ''}
               </span>
             </Col>
           </Row>
         </div>
 
 
-
+    
         {/* // // user photo posted */}
         <div className="card-image">
           <img src={props.image} width="300" height="350" className="activator" />

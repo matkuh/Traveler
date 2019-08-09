@@ -37,7 +37,7 @@ const styles = {
     // position: 'fixed',
     left: '0',
     bottom: '0',
-    marginTop: '15%',
+    marginTop: '30%',
     width: '100%',
     backgroundColor: '#2196f3',
     color: 'white',
@@ -78,12 +78,12 @@ class Discover extends Component {
         event.preventDefault()
 
         // added==================================
-        if (!this.state.tag) {
-            alert("don't refresh me");
-            return false;
-        } else {
-            alert("yass");
-        }
+        // if (!this.state.tag) {
+        //     // alert("don't refresh me");
+        //     return false;
+        // } else {
+        //     // alert("yass");
+        // }
 
         // end add==================================
 
