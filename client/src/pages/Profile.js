@@ -16,6 +16,7 @@ import GoogleMapReact from 'google-map-react'
 import Background from "../assets/bg4.jpg"
 
 
+
 import styled from 'styled-components';
 
 // Utils
@@ -56,6 +57,18 @@ const divStyle = {
 //         </div>
 //     )
 // }
+
+const styles = {
+    // position: 'fixed',
+    left: '0',
+    bottom: '0',
+    marginTop: '15%',
+    width: '100%',
+    backgroundColor: '#2196f3',
+    color: 'white',
+    textAlign: 'center',
+    // opacity: '1'
+}
 
 
 export class Profile extends Component {
@@ -220,8 +233,9 @@ export class Profile extends Component {
 
                         )).reverse() : "No Posts"
                     }
-
+                    
                 </Container>
+                <CardPanel styles={{styles}}></CardPanel>
             </div>
         )
     }
