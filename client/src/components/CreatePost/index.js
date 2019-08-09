@@ -146,8 +146,7 @@ class CreatePost extends Component {
 
                                         </Col>
 
-                                        {/* <label htmlFor="location">Where are you?</label> */}
-
+                                        <label htmlFor="location">Where are you?</label>
                                         {/* <TextInput className="col s6">Title</TextInput> */}
                                         <Col size="s6">
                                             <input placeholder="Title" id="title" name="title" type="text" className="validate" value={this.state.title} onChange={this.handleInputChange} />
