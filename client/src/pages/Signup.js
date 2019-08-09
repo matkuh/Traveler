@@ -109,7 +109,7 @@ class Signup extends Component {
                 <UnsplashApiLogin />
                 <Container>
                     <div className="card-panel center" id="cardStyleSignup">
-                        <h4 style={{marginBottom: '0'}}>Sign Up</h4>
+                        <h4 style={{ marginBottom: '0' }}>Sign Up</h4>
                         <div className="row">
                             <form className="col s12">
                                 <Row className="mb-1">
@@ -122,20 +122,20 @@ class Signup extends Component {
                                         <label htmlFor="lastLame">Last Name</label>
                                     </div>
                                 </Row>
-                                <Row className = 'mb-1'>
+                                <Row className='mb-1'>
                                     <div className="input-field col s12">
                                         <input id="email" className="validate" type="email" name="email" value={this.state.email} onChange={this.handleInputChange} />
                                         <label htmlFor="email">Email</label>
                                     </div>
                                 </Row>
 
-                                <Row className = 'mb-1'>
+                                <Row className='mb-1'>
                                     <div className="input-field col s12">
                                         <input id="password" className="validate" type="password" name="password" value={this.state.password} onChange={this.handleInputChange} />
                                         <label htmlFor="password">Password</label>
                                     </div>
                                 </Row>
-                                <Row className = 'mb-1'>
+                                <Row className='mb-1'>
                                     <div className="input-field col s12">
                                         <input id="passwordConfirm" className="validate" type="password" name="passwordConfirm" value={this.state.passwordConfirm} onChange={this.handleInputChange} />
                                         <label htmlFor="passwordConfirm"> Confirm Password</label>
@@ -144,17 +144,17 @@ class Signup extends Component {
 
                                 <Row className='center'>
                                     <div className="file-field input-field">
-                                        <div className="btn blue">
-                                            <span>Upload Photo</span>
+                                        <div className="btn blue" id='signUP'>
+                                            Upload Photo
                                             <input
                                                 type='file'
                                                 onChange={this.handlePicture}
                                             />
                                             {/* <input type='file' onChange={this.handlePicture} ref={(ref) => { this.uploadInput = ref }} /> */}
                                         </div>
-                                        <div className="file-path-wrapper">
+                                        {/* <div className="file-path-wrapper">
                                             <input className="file-path validate" />
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </Row>
 
