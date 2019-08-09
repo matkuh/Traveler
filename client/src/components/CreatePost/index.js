@@ -80,15 +80,16 @@ class CreatePost extends Component {
         axios.post("/api/feed", formData)
             .then((res) => {
                 console.log(res)
-                this.setState({
-                    url: res.data.imageURL
-                })
+                // this.setState({
+                //     url: res.data.imageURL
+                // })
             })
     }
 
     addPost = async event => {
         event.preventDefault();
         console.log("Add post begins")
+        console.log(this.state.url)
         var postData = {
             info: this.state.info,
             tag: this.state.tag,

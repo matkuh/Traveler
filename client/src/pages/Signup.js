@@ -54,9 +54,9 @@ class Signup extends Component {
         axios.post("/api/user", formData)
             .then((res) => {
                 console.log(res)
-                this.setState({
-                    url: res.data.imageURL
-                })
+                // this.setState({
+                //     url: res.data.imageURL
+                // })
             })
     }
 
@@ -75,7 +75,7 @@ class Signup extends Component {
                         email: this.state.email,
                         firstName: this.state.firstName,
                         lastName: this.state.lastName,
-                        image: this.state.urlName
+                        image: this.state.url
                     }),
                     headers: new Headers({
                         "Content-Type": "application/json"
@@ -92,7 +92,7 @@ class Signup extends Component {
                     passwordConfirm: '',
                     firstName: '',
                     lastName: '',
-                    urlName: ''
+                    url: ''
                 });
 
             } else {
