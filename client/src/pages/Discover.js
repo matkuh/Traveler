@@ -164,23 +164,25 @@ class Discover extends Component {
                     </Row>
                     {/* <CardPanel> */}
                     <Container>
-                        {(this.state.posts.length) ? this.state.posts.map((post, i) => (
-                            <Row className="center">
+                        <Container>
+                            {(this.state.posts.length) ? this.state.posts.map((post, i) => (
+                                <Row className="center">
 
-                                <Post
+                                    <Post
 
-                                    followUser={this.followUser}
-                                    key={i}
-                                    title={post.title}
-                                    info={post.info}
-                                    location={post.location}
-                                    tag={post.tag}
-                                    user_id={post.user_id}
-                                    image={post.image}
-                                />
-                            </Row>
+                                        followUser={this.followUser}
+                                        key={i}
+                                        title={post.title}
+                                        info={post.info}
+                                        location={post.location}
+                                        tag={post.tag}
+                                        user_id={post.user_id}
+                                        image={post.image}
+                                    />
+                                </Row>
 
-                        )) : "No Posts"}
+                            )) : "No Posts"}
+                        </Container>
 
                     </Container>
                     {/* </CardPanel> */}

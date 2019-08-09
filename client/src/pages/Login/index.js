@@ -72,7 +72,7 @@ class Login extends Component {
             <CardPanel id="cardStyleLogin">
               <h1 id='logo'>Traveler</h1>
 
-              <h4 className="loginFont">Login</h4>
+              <h5 className="loginFont">Login</h5>
 
               <form className="col s12">
                 <Row>
