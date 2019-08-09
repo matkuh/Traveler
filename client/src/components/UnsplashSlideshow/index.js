@@ -58,7 +58,7 @@ class UnsplashApiLogin extends Component {
     render() {
         if (!this.state.items.length) {
             return (
-                <div>Loading</div>
+                <div></div>
             );
         } else {
             return (

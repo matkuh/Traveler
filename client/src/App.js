@@ -55,7 +55,6 @@ class App extends Component {
     await API.getUser()
       .then(user => {
         console.log(user);
-        console.log("hit app.js com")
         this.setState({
           isLoggedin: user.data.isLoggedin,
           user_id: user.data.id,

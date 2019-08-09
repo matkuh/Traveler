@@ -11,7 +11,7 @@ import Button from '../components/Button'
 import { Col, Row, Container } from "../components/Grid";
 import CardPanel from '../components/CardPanel'
 
-// import UnsplashApiLogin from "../components/UnsplashSlideshow"
+import UnsplashApiLogin from "../components/UnsplashSlideshow"
 
 
 class Login extends Component {
@@ -62,47 +62,51 @@ class Login extends Component {
       <div>
         {/* <BackgroundSlideshow images={[image1, image2, image3]} /> */}
 
-        <h1>Traveler</h1>
-
-        <br /><br /><br />
-        <CardPanel id="cardStyleLogin">
-
-          <h4 className="loginFont">Login</h4>
-
-          <form className="col s12">
-            <Row>
-              <div className="input-field col s12">
-                <input id="email" className="validate" name='email' type="email" value={this.state.email} onChange={this.handleInputChange} />
-                <label htmlFor="email">Email</label>
-              </div>
+        <div>
+          <Container>
+            <Row className="center">
+              <h1>TRAVELER</h1>
             </Row>
-            <Row>
-              <div className="input-field col s12">
-                <input id="password" className="validate" name='password' type="password" value={this.state.password} onChange={this.handleInputChange} />
-                <label htmlFor="password">Password</label>
-              </div>
-            </Row>
-            <Row>
-              <Col size="s6">
-                <br></br>
-                {/* <Link to="/profile"> */}
-                <Button onClick={this.handleFormSubmit}>Login <i className="material-icons">send</i></Button>
-                {/* </Link> */}
-                <br></br>
-              </Col>
-              <Col size="s6">
-                <br></br>
-                <Link to="/signup">
-                  <Button>Signup</Button>
-                </Link>
-                <br></br>
-              </Col>
-            </Row>
-          </form>
-        </CardPanel>
+            <br /><br /><br />
+            <CardPanel id="cardStyleLogin">
 
+              <h4 className="loginFont">Login</h4>
+
+              <form className="col s12">
+                <Row>
+                  <div className="input-field col s12">
+                    <input id="email" className="validate" name='email' type="email" value={this.state.email} onChange={this.handleInputChange} />
+                    <label htmlFor="email">Email</label>
+                  </div>
+                </Row>
+                <Row>
+                  <div className="input-field col s12">
+                    <input id="password" className="validate" name='password' type="password" value={this.state.password} onChange={this.handleInputChange} />
+                    <label htmlFor="password">Password</label>
+                  </div>
+                </Row>
+                <Row>
+                  <Col size="s6">
+                    <br></br>
+                    {/* <Link to="/profile"> */}
+                    <Button onClick={this.handleFormSubmit}>Login <i className="material-icons">send</i></Button>
+                    {/* </Link> */}
+                    <br></br>
+                  </Col>
+                  <Col size="s6">
+                    <br></br>
+                    <Link to="/signup">
+                      <Button>Signup</Button>
+                    </Link>
+                    <br></br>
+                  </Col>
+                </Row>
+              </form>
+            </CardPanel>
+          </Container>
+        </div>
         {/* <BackgroundSlider images={[image1, image2, image3]} duration={5} transition={1} /> */}
-        {/* <UnsplashApiLogin /> */}
+        <UnsplashApiLogin />
       </div >
 
     )
