@@ -209,6 +209,7 @@ export class Profile extends Component {
                                 <Row className='center'>
 
                                     <Post
+                                        follow = {false}
                                         key={i}
                                         title={post.title}
                                         info={post.info}

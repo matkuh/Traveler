@@ -169,7 +169,7 @@ class Discover extends Component {
                                 <Row className="center">
 
                                     <Post
-
+                                        follow={true}
                                         followUser={this.followUser}
                                         key={i}
                                         title={post.title}

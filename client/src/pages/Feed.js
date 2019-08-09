@@ -43,7 +43,7 @@ const styles = {
     color: 'white',
     textAlign: 'center',
     opacity: '1'
-  }
+}
 
 
 
@@ -57,9 +57,9 @@ class Feed extends Component {
         // followIds: {},
         followPosts: {},
         place: {}
-        
+
     }
-    
+
 
     showPlaceDetails(place) {
         this.setState({ place });
@@ -116,24 +116,26 @@ class Feed extends Component {
                 {/* <Autocomplete id="location" name="location" value={this.state.location} onPlaceChanged={this.showPlaceDetails.bind(this)} />
                 <AddressDetails place={this.state.place} value={this.state.location}/> */}
                 {/* <CreatePost user_id={this.state.user_id} /> */}
-                
+
                 <HeadTitle></HeadTitle>
 
-{/* <Container>
+                {/* <Container>
     <CardPanel>
         <SidePost user_id={this.state.user_id}/>
     </CardPanel>
 </Container> */}
 
-{/* <SidePost/> */}
+                {/* <SidePost/> */}
 
                 <Container>
 
-                <CreatePost user_id={this.state.user_id} />
+                    <CreatePost user_id={this.state.user_id} />
                     {/* <CardPanel> */}
-                        <Row className="center">
-                            {(this.state.followPosts.length) ?
-                                this.state.followPosts.map((post, i) => (
+                    <Container>
+                        {(this.state.followPosts.length) ?
+                            this.state.followPosts.map((post, i) => (
+                                <Row className="center">
+
                                     <Post
                                         key={i}
                                         title={post.title}
@@ -144,9 +146,11 @@ class Feed extends Component {
                                         image={post.image}
 
                                     />
-                                )) : "No Posts"
-                            }
-                        </Row>
+                                </Row>
+
+                            )) : "No Posts"
+                        }
+                    </Container>
                     {/* </CardPanel> */}
                 </Container>
                 <CardPanel style={styles}></CardPanel>
