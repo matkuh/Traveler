@@ -104,7 +104,7 @@ class CreatePost extends Component {
         API.newPost(postData)
             .then(response => {
                 console.log(response)
-                // window.location.reload()
+                window.location.reload()
             })
     }
     render() {
