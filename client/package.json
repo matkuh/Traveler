@@ -1,0 +1,53 @@
+{
+  "name": "project-3",
+  "version": "0.1.0",
+  "proxy": "http://localhost:4815/",
+  "private": true,
+  "engines": {
+    "node": "12.7.0"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "google-map-react": "^1.1.4",
+    "js-cookie": "^2.2.0",
+    "materialize-css": "^1.0.0-rc.2",
+    "react": "^16.8.6",
+    "react-background-slider": "^1.2.0",
+    "react-background-slideshow": "^1.0.4",
+    "react-burger-menu": "^2.6.11",
+    "react-dependent-script": "^1.1.2",
+    "react-dom": "^16.8.6",
+    "react-places-autocomplete": "^7.2.1",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.0.1",
+    "react-select": "^3.0.4",
+    "styled-components": "^4.3.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "main": "index.js",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
