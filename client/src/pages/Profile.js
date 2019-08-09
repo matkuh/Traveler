@@ -159,7 +159,7 @@ export class Profile extends Component {
                         <Col size="s6">
                             {/* <p>{this.state.user_id}</p> */}
 
-                            <img style={{ height: "300px", width: "300px" }} src={this.state.image} alt="Profile picture" />
+                            <img style={{ height: "300px", width: "400px" }} src={this.state.image} alt="Profile picture" />
                         </Col>
                     </Row>
                     <Row className='center'>
@@ -203,23 +203,25 @@ export class Profile extends Component {
                 </Container>
                 {/* SHOW POST ATTEMPT */}
                 <Container>
-                    {(this.state.posts.length) ?
-                        this.state.posts.map((post, i) => (
-                            <Row className='center'>
+                    <Container>
+                        {(this.state.posts.length) ?
+                            this.state.posts.map((post, i) => (
+                                <Row className='center'>
 
-                                <Post
-                                    key={i}
-                                    title={post.title}
-                                    info={post.info}
-                                    location={post.location}
-                                    tag={post.tag}
-                                    user_id={post.user_id}
-                                    image={post.image}
-                                />
-                            </Row>
+                                    <Post
+                                        key={i}
+                                        title={post.title}
+                                        info={post.info}
+                                        location={post.location}
+                                        tag={post.tag}
+                                        user_id={post.user_id}
+                                        image={post.image}
+                                    />
+                                </Row>
 
-                        )).reverse() : "No Posts"
-                    }
+                            )).reverse() : "No Posts"
+                        }
+                    </Container>
 
                 </Container>
             </div>

@@ -163,11 +163,12 @@ class Discover extends Component {
 
                     </Row>
                     {/* <CardPanel> */}
+                    <Container>
                         {(this.state.posts.length) ? this.state.posts.map((post, i) => (
                             <Row className="center">
 
                                 <Post
-                                    
+
                                     followUser={this.followUser}
                                     key={i}
                                     title={post.title}
@@ -181,6 +182,7 @@ class Discover extends Component {
 
                         )) : "No Posts"}
 
+                    </Container>
                     {/* </CardPanel> */}
 
                 </Container>

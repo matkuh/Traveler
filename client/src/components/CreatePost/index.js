@@ -143,10 +143,11 @@ class CreatePost extends Component {
                                     {/* AUTOCOMPLETE TESTING */}
                                     <Row>
                                         <Col size="s6">
+                                            <input placeholder="Location" id="location" name="location" type="text" className="validate" value={this.state.location} onChange={this.handleInputChange} />
 
                                         </Col>
 
-                                        <label htmlFor="location">Where are you?</label>
+                                        {/* <label htmlFor="location">Where are you?</label> */}
                                         {/* <TextInput className="col s6">Title</TextInput> */}
                                         <Col size="s6">
                                             <input placeholder="Title" id="title" name="title" type="text" className="validate" value={this.state.title} onChange={this.handleInputChange} />
